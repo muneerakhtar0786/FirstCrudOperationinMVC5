@@ -1,0 +1,38 @@
+﻿@model FirstCrudMVV.Models.Employee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddEmployee</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("SaveEmployee","Employee",FormMethod.Post)) { 
+        
+        @Html.HiddenFor(m=>m.Id)
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>@Html.TextBoxFor(m => m.Name)</td>
+            </tr>
+            <tr>
+                <td>Designation</td>
+                <td>@Html.TextBoxFor(m => m.Designation)</td>
+            </tr>
+            <tr>
+                <td>Salary</td>
+                <td>@Html.TextBoxFor(m => m.Salary)</td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Save" /></td>
+            </tr>
+        </table>
+        }
+    </div>
+</body>
+</html>

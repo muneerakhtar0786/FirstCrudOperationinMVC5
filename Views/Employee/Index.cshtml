@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <a href="/Employee/AddEmployee">Add Employee</a>
+    </div>
+    <hr />
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewBag.Employees != null)
+            {
+                foreach (var item in ViewBag.Employees)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Designation</td>
+                        <td>@item.Salary</td>
+                        <td><a href="/Employee/AddEmployee?id=@item.Id">Edit</a> | <a href="/Employee/Delete?id=@item.Id">Delete</a></td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>No Data Found</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
